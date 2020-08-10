@@ -80,4 +80,16 @@ interface UserInterface extends BaseUserInterface
      * @return string
      */
     public function getEmailCanonical();
+
+    /**
+     * @param string $plainPassword
+     *
+     * @return static
+     */
+    public function setPlainPassword($plainPassword);
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword();
 }
