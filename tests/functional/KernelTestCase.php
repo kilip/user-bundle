@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DoyoLabs User Bundle project.
+ * This file is part of the kilip/user-bundle project.
  *
  * (c) Anthonius Munthi <https://itstoni.com>
  *
@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\DoyoLabs\UserBundle\Functional;
+namespace Tests\Kilip\UserBundle\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase as BaseKernelTestCase;
-use Tests\DoyoLabs\UserBundle\Sandbox\AppKernel;
+use Tests\Kilip\UserBundle\Sandbox\AppKernel;
 
 abstract class KernelTestCase extends BaseKernelTestCase
 {

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DoyoLabs User Bundle project.
+ * This file is part of the kilip/user-bundle project.
  *
  * (c) Anthonius Munthi <https://itstoni.com>
  *
@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace DoyoLabs\UserBundle\Contracts;
+namespace Kilip\UserBundle\Contracts;
 
 use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 

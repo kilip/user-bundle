@@ -1,6 +1,6 @@
 {
-    "name": "doyolabs/user-bundle",
-    "description": "DoyoLabs User Bundle Component",
+    "name": "kilip/user-bundle",
+    "description": "Kilip UserBundle Component",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -18,14 +18,14 @@
     },
     "autoload": {
         "psr-4": {
-            "DoyoLabs\\UserBundle\\": "./src"
+            "Kilip\\UserBundle\\": "./src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\DoyoLabs\\UserBundle\\Unit\\": "./tests/unit",
-            "Tests\\DoyoLabs\\UserBundle\\Sandbox\\": "./tests/sandbox",
-            "Tests\\DoyoLabs\\UserBundle\\Functional\\": "./tests/functional"
+            "Tests\\Kilip\\UserBundle\\Unit\\": "./tests/unit",
+            "Tests\\Kilip\\UserBundle\\Sandbox\\": "./tests/sandbox",
+            "Tests\\Kilip\\UserBundle\\Functional\\": "./tests/functional"
         }
     },
     "scripts": {

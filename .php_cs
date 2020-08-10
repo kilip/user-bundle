@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $header = <<<'HEADER'
-This file is part of the DoyoLabs User Bundle project.
+This file is part of the kilip/user-bundle project.
 
 (c) Anthonius Munthi <https://itstoni.com>
 

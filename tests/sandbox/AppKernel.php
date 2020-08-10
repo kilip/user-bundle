@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DoyoLabs User Bundle project.
+ * This file is part of the kilip/user-bundle project.
  *
  * (c) Anthonius Munthi <https://itstoni.com>
  *
@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\DoyoLabs\UserBundle\Sandbox;
+namespace Tests\Kilip\UserBundle\Sandbox;
 
 use ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use DoyoLabs\UserBundle\DoyoUserBundle;
+use Kilip\UserBundle\DoyoUserBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;

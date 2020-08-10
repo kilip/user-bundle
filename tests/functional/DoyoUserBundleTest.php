@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DoyoLabs User Bundle project.
+ * This file is part of the kilip/user-bundle project.
  *
  * (c) Anthonius Munthi <https://itstoni.com>
  *
@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\DoyoLabs\UserBundle\Functional;
+namespace Tests\Kilip\UserBundle\Functional;
 
-use DoyoLabs\UserBundle\DoyoUserBundle;
+use Kilip\UserBundle\DoyoUserBundle;
 
 class DoyoUserBundleTest extends KernelTestCase
 {
