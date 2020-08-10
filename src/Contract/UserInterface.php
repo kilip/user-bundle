@@ -32,7 +32,7 @@ interface UserInterface extends BaseUserInterface
     public function setPassword($password);
 
     /**
-     * @param string $salt
+     * @param string|null $salt
      *
      * @return static
      */

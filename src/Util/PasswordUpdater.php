@@ -32,6 +32,7 @@ class PasswordUpdater implements PasswordUpdaterInterface
 
     /**
      * {@inheritdoc}
+     *
      * @throws \Exception when not get sufficient entropy
      */
     public function hashPassword(UserInterface $user)
