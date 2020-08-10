@@ -116,14 +116,9 @@ jobs:
             symfony/flex
       - name: Update project dependencies
         run: |
-          mkdir -p /tmp/api-platform/core/vendor
-          ln -s /tmp/api-platform/core/vendor vendor
+          mkdir -p /tmp/kilip/user-bundle/vendor
+          ln -s /tmp/kilip/user-bundle/vendor vendor
           composer update --no-progress --no-suggest --ansi
-      - name: Clear test app cache
-        run: |
-          mkdir -p /tmp/api-platform/core/var
-          ln -s /tmp/api-platform/core/var tests/Fixtures/app/var
-          tests/Fixtures/app/console cache:clear --ansi
       - name: Cache PHPStan results
         uses: actions/cache@v1
         with:
@@ -195,8 +190,8 @@ jobs:
         continue-on-error: true
       - name: Update project dependencies
         run: |
-          mkdir -p /tmp/api-platform/core/vendor
-          ln -s /tmp/api-platform/core/vendor vendor
+          mkdir -p /tmp/kilip/user-bundle/vendor
+          ln -s /tmp/kilip/user-bundle/vendor vendor
           composer update --no-progress --no-suggest --ansi
       - name: Enable code coverage
         if: matrix.coverage
