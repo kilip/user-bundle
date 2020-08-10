@@ -132,7 +132,7 @@ jobs:
         run: vendor/bin/phpstan analyse --ansi
 
   phpunit:
-    name: PHPUnit (PHP ${{ matrix.php }})
+    name: PHPUnit (PHP ${{ matrix.php }} - ${{ matrix.dependency }})
     runs-on: ubuntu-latest
     container:
       image: php:${{ matrix.php }}-alpine
@@ -145,8 +145,10 @@ jobs:
           - '7.2'
           - '7.3'
           - '7.4'
+        dependency: [prefer-lowest, prefer-stable]
         include:
           - php: '7.4'
+            dependency-version: prefer-stable
             coverage: true
       fail-fast: false
     timeout-minutes: 20
@@ -183,16 +185,16 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.composer/cache
-          key: composer-php${{ matrix.php }}-${{ github.sha }}
+          key: composer-php${{ matrix.php }}-${{ matrix.dependency }}-${{ github.sha }}
           restore-keys: |
-            composer-php${{ matrix.php }}-
+            composer-php${{ matrix.php }}-${{ matrix.dependency }}-
             composer-
         continue-on-error: true
       - name: Update project dependencies
         run: |
           mkdir -p /tmp/kilip/user-bundle/vendor
           ln -s /tmp/kilip/user-bundle/vendor vendor
-          composer update --no-progress --no-suggest --ansi
+          composer update --no-progress --no-suggest --ansi --prefer-dist --no-interaction --${{ matrix.dependency }}
       - name: Enable code coverage
         if: matrix.coverage
         run: echo '::set-env name=COVERAGE::1'
@@ -208,14 +210,14 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v1
         with:
-          name: phpunit-logs-php${{ matrix.php }}
+          name: phpunit-logs-php${{ matrix.php }}-${{ matrix.dependency }}
           path: build/logs/phpunit
         continue-on-error: true
       - name: Upload coverage results to Codecov
         if: matrix.coverage
         uses: codecov/codecov-action@v1
         with:
-          name: phpunit-php${{ matrix.php }}
+          name: phpunit-php${{ matrix.php }}-${{ matrix.dependency }}
           flags: phpunit
           fail_ci_if_error: true
         continue-on-error: true
