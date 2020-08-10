@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Kilip\UserBundle\Contracts;
+namespace Kilip\UserBundle\Contract;
 
 use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 
