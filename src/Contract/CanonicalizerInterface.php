@@ -16,7 +16,7 @@ namespace Kilip\UserBundle\Contract;
 interface CanonicalizerInterface
 {
     /**
-     * @param string $string
+     * @param string|null $string
      *
      * @return string|null
      */

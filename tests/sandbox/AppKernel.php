@@ -21,14 +21,13 @@ use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
+use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RouteConfigurator;
-use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symfony\Component\Security\Core\Encoder\NativePasswordEncoder;
-use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
@@ -53,6 +52,7 @@ class AppKernel extends Kernel
 
     /**
      * @param RouteCollectionBuilder|RouteConfigurator $routes
+     *
      * @throws \Symfony\Component\Config\Exception\LoaderLoadException
      */
     protected function configureRoutes($routes)
@@ -63,27 +63,23 @@ class AppKernel extends Kernel
 
     /**
      * @param ContainerBuilder|ContainerConfigurator $c
-     * @param LoaderInterface $loader
+     * @param LoaderInterface                        $loader
+     *
      * @throws \Exception
      */
-    protected function configureContainer($c, LoaderInterface $loader)
+    protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader)
     {
-        if($c instanceof ContainerConfigurator){
-            $c->import($this->getProjectDir().'/config/*.yaml');
-
-            if (is_dir($dir = $this->getProjectDir().'/config/'.$this->environment.'/*.yaml')) {
-                $c->import($dir);
-            }
-        }else{
-            $loader->load($this->getProjectDir().'/config/*.yaml','glob');
-            if (is_dir($dir = $this->getProjectDir().'/config/'.$this->environment.'/*.yaml')) {
-                $loader->load($dir, 'glob');
-            }
+        $loader->load($this->getProjectDir().'/config/*.yaml', 'glob');
+        if (is_dir($dir = $this->getProjectDir().'/config/'.$this->environment.'/*.yaml')) {
+            $loader->load($dir, 'glob');
         }
         $this->configureSecurity($c);
     }
 
-    private function configureSecurity(ContainerBuilder $c)
+    /**
+     * @param ContainerConfigurator|ContainerBuilder $c
+     */
+    private function configureSecurity($c)
     {
         $alg = class_exists(NativePasswordEncoder::class) ? 'auto' : 'bcrypt';
         $securityConfig = [
