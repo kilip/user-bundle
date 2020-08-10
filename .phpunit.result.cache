@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":289:{a:2:{s:7:"defects";a:1:{s:64:"Tests\DoyoLabs\UserBundle\Functional\DoyoUserBundleTest::testFoo";i:4;}s:5:"times";a:2:{s:64:"Tests\DoyoLabs\UserBundle\Functional\DoyoUserBundleTest::testFoo";d:0.063;s:73:"Tests\DoyoLabs\UserBundle\Functional\DoyoUserBundleTest::testBundleLoaded";d:0.062;}}}
