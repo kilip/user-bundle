@@ -1,0 +1,11 @@
+framework:
+  secret: 'doyolabs.bundle'
+  validation:
+    enable_annotations: true
+  serializer:
+    enable_annotations: true
+
+  test: ~
+  profiler:
+    enabled:                        true
+    collect:                        false
